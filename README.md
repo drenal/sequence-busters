@@ -38,6 +38,30 @@ git merge YOUR_BRANCH_NAME
 git push
 ```
 
+### CI integration
+
+When you have a new set of proposed models, you have to change the path to it in 2 files:
+In `Dockerfile` and `.dockerignore` replace the line:
+```
+saved/baseline/0423-201034/checkpoints/model_best.pth 
+```
+with the path to your model.
+
+And then don't forget to `git add` it with force:
+```
+git add -f PATH_TO_YOUR_MODEL.pth
+```
+
+### To get on track with main branch
+
+```
+git checkout YOUR_BRANCH
+git merge main
+git push
+```
+
+Be sure that this step didn't overwrite something of your own work and results!
+
 ## Original README
 
 The README provided by Biohacathon is [HERE](README.rst)

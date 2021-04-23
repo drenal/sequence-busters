@@ -15,9 +15,9 @@ Our preferred challenges is **From protein language to features without alignmen
 - Joaquín Antonio Ramírez Hernández
 - Lenard Szantho
 
-### Project Description
+## Project Description
 We are working on the `protein-language` challenge.
 To predict using our model, press "Open Application" on the left. 
 
-### Scoreboard
+## Scoreboard
 You can track the performance of our predictor in the [challenge scoreboard](https://biolib.com/biohackathon/protein-language-scoreboard/).
