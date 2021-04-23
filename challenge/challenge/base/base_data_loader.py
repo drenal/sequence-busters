@@ -8,7 +8,7 @@ class DataLoaderBase(DataLoader):
     """ Challenge Dataloader """
 
     def __init__(self, dataset_loader: str, batch_size: int, shuffle: bool,
-                    validation_split: float, nworkers: int, test_path: list, train_path: list = None):
+                 validation_split: float, nworkers: int, test_path: list, train_path: list = None):
         """ Constructor
         Args:
             train_path: path to the training dataset

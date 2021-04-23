@@ -12,7 +12,7 @@ class EvaluateBase:
     """ Base class for all evaluators """
 
     def __init__(self, model: nn.Module, metrics: list, metrics_task: list, device: torch.device,
-                checkpoint_dir: str = None, model_path: str = None, writer_dir: str = None):
+                 checkpoint_dir: str = None, model_path: str = None, writer_dir: str = None):
         """ Constructor
         Args:
             model: model to use for the evaluation
@@ -22,7 +22,7 @@ class EvaluateBase:
             writer_dir: directory to write results
             device: device for the tensors
         """
-        
+
         self.model = model
         self.metrics = metrics
         self.metrics_task = metrics_task
@@ -50,7 +50,7 @@ class EvaluateBase:
         for _ in range(1):
             result = self._evaluate_epoch()
 
-            # save logged informations into log dict
+            # save logged information into log dict
             for key, value in result.items():
                 if key == self.evaluations.keys():
                     self.evaluations[key].update(value.avg)

@@ -1,17 +1,15 @@
-from pathlib import Path
 import math
+from pathlib import Path
 
-import yaml
 import torch
 import torch.nn as nn
 import torch.optim as optim
-
+import yaml
 from challenge.utils import (
     setup_logger,
     trainer_paths,
     TensorboardWriter
 )
-
 
 log = setup_logger(__name__)
 
@@ -20,7 +18,7 @@ class TrainerBase:
     """ Base class for all trainers """
 
     def __init__(self, model: nn.Module, loss: any, metrics: dict, metrics_task: dict,
-                optimizer: optim, start_epoch: int, config: dict, device: torch.device):
+                 optimizer: optim, start_epoch: int, config: dict, device: torch.device):
         """ Constructor
         Args:
             model: model to use for the training
@@ -31,7 +29,7 @@ class TrainerBase:
             config: loaded configuration file
             device: device for the tensors
         """
-        
+
         self.model = model
         self.loss = loss
         self.metrics = metrics
@@ -59,7 +57,7 @@ class TrainerBase:
         for epoch in range(self.start_epoch, self.epochs):
             result = self._train_epoch(epoch)
 
-            # save logged informations into log dict
+            # save logged information into log dict
             results = {'epoch': epoch}
             for key, value in result.items():
                 if key == 'metrics':
@@ -73,7 +71,7 @@ class TrainerBase:
                 else:
                     results[key] = value
 
-            # print logged informations to the screen
+            # print logged information to the screen
             for key, value in results.items():
                 log.info(f'{str(key):15s}: {value}')
 
@@ -84,12 +82,12 @@ class TrainerBase:
                 try:
                     # check whether model performance improved or not, according
                     # to specified metric(mnt_metric)
-                    improved = (self.mnt_mode == 'min' and results[self.mnt_metric] < self.mnt_best) or\
+                    improved = (self.mnt_mode == 'min' and results[self.mnt_metric] < self.mnt_best) or \
                                (self.mnt_mode
                                 == 'max' and results[self.mnt_metric] > self.mnt_best)
                 except KeyError:
                     log.warning(f"Warning: Metric '{self.mnt_metric}' is not found. Model "
-                                        "performance monitoring is disabled.")
+                                "performance monitoring is disabled.")
                     self.mnt_mode = 'off'
                     improved = False
                     not_improved_count = 0
@@ -103,7 +101,7 @@ class TrainerBase:
 
                 if not_improved_count > self.early_stop:
                     log.info(f"Validation performance didn\'t improve for {self.early_stop} "
-                                     "epochs. Training stops.")
+                             "epochs. Training stops.")
                     break
 
             if epoch % self.save_period == 0:
