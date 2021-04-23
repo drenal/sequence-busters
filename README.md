@@ -24,6 +24,9 @@ Once you think you have something cool, you can:
 ```
 git add .
 git commit -m "changes on your branch"
+git push 
+# or for the first time
+#git push --set-upstream origin YOUR_BRANC_NAME
 git checkout main
 git merge YOUR_BRANCH_NAME
 git push
