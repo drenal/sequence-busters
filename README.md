@@ -37,3 +37,7 @@ git checkout main
 git merge YOUR_BRANCH_NAME
 git push
 ```
+
+## Original README
+
+The README provided by Biohacathon is [HERE](README.rst)
