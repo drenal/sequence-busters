@@ -4,7 +4,6 @@ import torch.nn as nn
 from challenge.base import ModelBase
 from challenge.utils import setup_logger
 
-
 log = setup_logger(__name__)
 
 

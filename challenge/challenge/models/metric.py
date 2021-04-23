@@ -1,5 +1,4 @@
 import torch
-import numpy as np
 
 
 def get_mask(labels: torch.tensor) -> torch.tensor:
