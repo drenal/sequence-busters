@@ -1,6 +1,9 @@
 name: CBH2021 Submission
 
-on: push
+on: 
+  push:
+    branches:
+      - main
 
 env:
     BIOLIB_LOG: debug
