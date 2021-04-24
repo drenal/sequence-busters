@@ -1,19 +1,20 @@
-name: linear
+name: lenardmodel2
 save_dir: saved/
 seed: 1234
 target_devices: [0]
 
 arch:
-  type: Linear
+  type: LenardModel2
   args:
-    in_features: 1280
+    in1_features: 20
+    in2_features: 1280
 
 data_loader:
   type: ChallengeDataLoader
   args:
     train_path: [data/Train_ESM1b.npz]
     test_path: [data/TS115_ESM1b.npz]
-    dataset_loader: ChallengeDataOnlyEmbedding
+    dataset_loader: ChallengeData
     batch_size: 15
     nworkers: 0 # dont change
     shuffle: true
