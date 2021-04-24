@@ -7,3 +7,4 @@ from .lenardmodel3 import *
 from .lenardmodel4 import *
 from .lenardmodel5 import *
 from .mariocustom import *
+from .lenardmodel6 import *
