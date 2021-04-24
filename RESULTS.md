@@ -1,0 +1,8 @@
+# Benchmark results
+
+Let's summarize the benchmark results of our models in this file
+
+| config.yml as in commit | model name | q3_train | q8_train | q3_secret | q8_secret |
+|-------------------------|------------|----------|----------|-----------|-----------|
+| #c5a4316                | Baseline   | 0.744823 | 0.613314 | 0.273153  | 0.0333517 |
+| #2c4b8e8                | Linear     | 0.767157 | 0.627129 | 0.487459  | 0.0085446 |
