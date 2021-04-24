@@ -1,10 +1,10 @@
-name: linear
+name: chris
 save_dir: saved/
 seed: 1234
 target_devices: [0]
 
 arch:
-  type: Linear
+  type: Chris
   args:
     in_features: 1280
 
@@ -15,7 +15,7 @@ data_loader:
     test_path: [data/TS115_ESM1b.npz]
     dataset_loader: ChallengeDataOnlyEmbedding
     batch_size: 15
-    nworkers: 0 # dont change
+    nworkers: 0 # don't change
     shuffle: true
     validation_split: 0.05
 
@@ -29,7 +29,7 @@ optimizer:
   type: Adam
   args:
     lr: 0.0001
-    weight_decay: 0
+    weight_decay: 0.1
 
 training:
   early_stop: 3

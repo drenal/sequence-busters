@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as f
+import torch.nn.functional as F
 
 from challenge.base import ModelBase
 from challenge.utils import setup_logger
@@ -20,7 +20,7 @@ class Linear(ModelBase):
         self.ss8_in = nn.Linear(in_features=in_features, out_features=64)
         self.ss8_1 = nn.Linear(in_features=64, out_features=64)
         self.ss8_2 = nn.Linear(in_features=64, out_features=64)
-        self.ss8_3 = nn.Linear(in_features=64, out_features=64)
+        # self.ss8_3 = nn.Linear(in_features=64, out_features=64)
         self.ss8_out = nn.Linear(in_features=64, out_features=8)
         self.ss3_in = nn.Linear(in_features=in_features, out_features=64)
         self.ss3_1 = nn.Linear(in_features=64, out_features=64)
@@ -32,16 +32,16 @@ class Linear(ModelBase):
     def forward(self, x: torch.tensor, mask: torch.tensor) -> torch.tensor:
         """ Forwarding logic """
 
-        ss8 = f.relu(self.ss8_in(x))
-        ss3 = f.relu(self.ss3_in(x))
+        ss8 = F.relu(self.ss8_in(x))
+        ss3 = F.relu(self.ss3_in(x))
 
-        ss8 = f.relu(self.ss8_1(ss8))
-        ss8 = f.relu(self.ss8_2(ss8))
-        ss8 = f.relu(self.ss8_3(ss8))
+        ss8 = F.relu(self.ss8_1(ss8))
+        ss8 = F.relu(self.ss8_2(ss8))
+        # ss8 = F.relu(self.ss8_3(ss8))
         ss8 = self.ss8_out(ss8)
 
-        ss3 = f.relu(self.ss3_1(ss3))
-        ss3 = f.relu(self.ss3_2(ss3))
+        ss3 = F.relu(self.ss3_1(ss3))
+        ss3 = F.relu(self.ss3_2(ss3))
         ss3 = self.ss3_out(ss3)
 
         return [ss8, ss3]
