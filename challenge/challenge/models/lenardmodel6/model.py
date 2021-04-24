@@ -24,7 +24,7 @@ class LenardModel6(ModelBase):
         # Conv1d 1280 -> 64 with kernel_size of 9, because literature says there are around 10 AA in a helix
         # padding 4 required so that we keep sequence length constant (1632)
         # padding mode circular because why not, maybe something else would be better?
-        self.L0 = nn.Conv1d(in_channels=in_features, out_channels=selnf.input_dim, kernel_size=9, padding=4, padding_mode='circular')
+        self.L0 = nn.Conv1d(in_channels=in_features, out_channels=self.input_dim, kernel_size=9, padding=4, padding_mode='circular')
         self.N0 = nn.ReLU()
 
         # maybe inserting a second conv1d layer in-between?
