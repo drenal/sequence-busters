@@ -25,7 +25,7 @@ class LenardModel5(ModelBase):
         # except if we use padding and now it performs better
         #self.L0 = nn.Conv1d(in_channels=in_features, out_channels=64, kernel_size=1)
         self.L0 = nn.Conv1d(in_channels=in_features, out_channels=64, kernel_size=9, padding=4, padding_mode='circular')
-        self.N0 = nn.ReLU()
+        self.N0 = nn.LeakyReLU()
         self.ss8 = nn.Linear(64,8)
         self.ss3 = nn.Linear(64,3)
         
@@ -35,7 +35,7 @@ class LenardModel5(ModelBase):
         """ Forwarding logic """
 
         ss8 = self.L0(x.permute(0,2,1))
-        #ss8 = self.N0(ss8)
+        ss8 = self.N0(ss8)
 
         # Conv1d will return with 250 datasets of 64x1632
         # but now we need the shape again in the old order, so permute it again
