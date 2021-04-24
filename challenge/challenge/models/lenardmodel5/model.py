@@ -20,7 +20,8 @@ class LenardModel5(ModelBase):
 
         # kernel size is 10, because about 10 aminoacids form a helix, so this could
         # be the size of a "typical word"
-        self.L0 = nn.Conv1d(in_channels=in_features, out_channels=64, kernel_size=1)
+        #self.L0 = nn.Conv1d(in_channels=in_features, out_channels=64, kernel_size=1)
+        self.L0 = nn.Conv1d(in_channels=in_features, out_channels=64, kernel_size=9, padding=4, padding_mode='circular')
         self.N0 = nn.ReLU()
         self.ss8 = nn.Linear(64,8)
         self.ss3 = nn.Linear(64,3)
@@ -31,7 +32,7 @@ class LenardModel5(ModelBase):
         """ Forwarding logic """
 
         ss8 = self.L0(x.permute(0,2,1))
-        ss8 = self.N0(ss8)
+        #ss8 = self.N0(ss8)
 
         # Conv1d will return with 250 datasets of 1280 channels and 
         # 
