@@ -1,10 +1,10 @@
-name: lenardmodel5
+name: mariocustom
 save_dir: saved/
 seed: 1234
 target_devices: [0]
 
 arch:
-  type: LenardModel5
+  type: Mariocustom
   args:
     in_features: 1280
 
