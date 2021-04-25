@@ -25,7 +25,7 @@ class LenardModel5(ModelBase):
         # except if we use padding and now it performs better
         #self.L0 = nn.Conv1d(in_channels=in_features, out_channels=64, kernel_size=1)
         self.L0 = nn.Conv1d(in_channels=in_features, out_channels=64, kernel_size=9, padding=4, padding_mode='circular')
-        self.N0 = nn.LeakyReLU()
+        self.N0 = nn.GELU()
         self.ss8 = nn.Linear(64,8)
         self.ss3 = nn.Linear(64,3)
         
