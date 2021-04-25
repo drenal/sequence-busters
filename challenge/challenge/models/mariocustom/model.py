@@ -30,11 +30,11 @@ class Mariocustom(ModelBase):
         """ Forwarding logic """
 
         ss8 = self.L0(x.permute(0,2,1))
-        ss8 = self.N0(ss8)
+        #ss8 = self.N0(ss8)
         #ss8 = self.MP0(ss8)
         #print(ss8.size())
         ss8 = self.L1(ss8)
-        ss8 = self.N1(ss8)
+        #ss8 = self.N1(ss8)
         #ss8 = self.MP1(ss8)
         #print(ss8.size())
         # permute back to original dimensions
