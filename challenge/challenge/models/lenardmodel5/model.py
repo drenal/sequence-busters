@@ -35,7 +35,7 @@ class LenardModel5(ModelBase):
         """ Forwarding logic """
 
         ss8 = self.L0(x.permute(0,2,1))
-        ss8 = self.N0(ss8)
+        #ss8 = self.N0(ss8)
 
         # Conv1d will return with 250 datasets of 64x1632
         # but now we need the shape again in the old order, so permute it again
